@@ -1,0 +1,10 @@
+sshmaria
+build/
+*.o
+*.a
+*.so
+*.out
+/test
+/membrane_simulator
+priey
+priey.pub
