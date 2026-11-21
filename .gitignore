@@ -1,10 +1,18 @@
+# SSH keys
+privatkey
+privatkey.pub
 sshmaria
+priey
+priey.pub
+id_ed25519
+id_rsa
+
+# Build files
 build/
 *.o
 *.a
 *.so
+*.pub
 *.out
 /test
 /membrane_simulator
-priey
-priey.pub
