@@ -17,7 +17,7 @@ class WaveSolver{
     double c;
     double gamma;
 
-    double F;
+    // double F;
     
     double amplitude;
     double frequency; // excitation freq
@@ -71,6 +71,8 @@ class WaveSolver{
     void applyBoundaryConditions(std::vector<std::vector<double>>& displacement);
 
     void checkStability() const;
+
+    double calculateExcitation(int x, int y) const;
 
     
 

@@ -1,6 +1,9 @@
 #include "WaveSolver.hpp"
 #include "Membrane.hpp"
 #include <cmath>
+#include <iostream>
+
+#define M_PI 3.14159265358979323846
 
 
     double WaveSolver::calculateLaplacian(int x, int y) const {
@@ -40,10 +43,16 @@
 
     };
 
+    double WaveSolver::calculateExcitation(int x, int y) const {
+    double force = amplitude * std::sin(2.0 * M_PI * frequency * time);
+        // std::cout << "Force: " << force << std::endl;
+        return force;
+}
+
 
     void WaveSolver::update(){ 
         
-        double F = amplitude * std::sin(2*3.14*frequency*time);
+        // double F = amplitude * std::sin(2*3.14*frequency*time);
 
         // we create grid for the next displacement
         std::vector<std::vector<double>> nextDisplacement(
@@ -59,7 +68,7 @@
                 double laplacian = calculateLaplacian(i,j);
 
                 // we use the wave equation to calc next displacement
-                nextDisplacement[i][j] = (2*current - (1-gamma*dt)*previousDisplacement[i][j] + c*c*dt*dt*laplacian + dt*dt*F)/(1+gamma*dt);
+                nextDisplacement[i][j] = (2*current - (1-gamma*dt)*previousDisplacement[i][j] + c*c*dt*dt*laplacian + dt*dt*calculateExcitation(i,j))/(1+gamma*dt);
 
                 }
         }

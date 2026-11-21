@@ -26,9 +26,9 @@ int main()
         float cellWidth = 800.0f / membrane.getGridWidth();
         float cellHeight = 800.0f / membrane.getGridLength();
 
-    membrane.setDisplacement(50, 50, 0.05);
+    // membrane.setDisplacement(50, 50, 0.05);
 
-    WaveSolver solver(membrane, 0.005, 0.4, 0.005, 10);
+    WaveSolver solver(membrane, 0.005, 0.4, 0.05, 10);
 
     sf::RectangleShape cell(sf::Vector2f(cellWidth, cellHeight));
     
@@ -58,7 +58,7 @@ int main()
 
             double value = membrane.getDisplacement(i, j);
 
-            double maxDisplacement = 0.01;
+            double maxDisplacement = 0.02;
             double normalized = value / maxDisplacement;
 
             normalized = std::max(-1.0, std::min(1.0, normalized));
