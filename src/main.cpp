@@ -28,7 +28,7 @@ int main()
 
     // membrane.setDisplacement(50, 50, 0.05);
 
-    WaveSolver solver(membrane, 0.005, 0.4, 0.05, 10);
+    WaveSolver solver(membrane, 0.005, 0.4, 0.05, 10, 50, 50);
 
     sf::RectangleShape cell(sf::Vector2f(cellWidth, cellHeight));
     

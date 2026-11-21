@@ -44,9 +44,12 @@
     };
 
     double WaveSolver::calculateExcitation(int x, int y) const {
-    double force = amplitude * std::sin(2.0 * M_PI * frequency * time);
-        // std::cout << "Force: " << force << std::endl;
-        return force;
+
+        if (x == shakerX && y == shakerY) {
+        return amplitude * std::sin(2.0 * M_PI * frequency * time);
+    }
+
+    return 0.0;
 }
 
 

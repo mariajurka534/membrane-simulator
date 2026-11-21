@@ -18,6 +18,8 @@ class WaveSolver{
     double gamma;
 
     // double F;
+    int shakerX;
+    int shakerY;
     
     double amplitude;
     double frequency; // excitation freq
@@ -29,7 +31,7 @@ class WaveSolver{
     public:
 
 
-    WaveSolver(Membrane& membrane, double dt, double gamma, double amplitude, double frequency)
+    WaveSolver(Membrane& membrane, double dt, double gamma, double amplitude, double frequency, int shakerX, int shakerY)
     : membrane(membrane),
     dt(dt),
     dx(0.0),
@@ -39,6 +41,8 @@ class WaveSolver{
     frequency(frequency),
     gamma(gamma),
     time(0.0)
+    shakerX(shakerX),
+    shakerY(shakerY)
     
     {
         if(dt <= 0 || gamma < 0){
